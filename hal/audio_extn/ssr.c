@@ -191,9 +191,9 @@ static int32_t drc_init_lib(int num_chan, int sample_rate __unused)
 
     /* TO DO: different config files for different sample rates */
     if (num_chan == 6) {
-        cfgFileName = "/system/etc/drc/drc_cfg_5.1.txt";
+        cfgFileName = "/vendor/etc/drc/drc_cfg_5.1.txt";
     } else if (num_chan == 2) {
-        cfgFileName = "/system/etc/drc/drc_cfg_AZ.txt";
+        cfgFileName = "/vendor/etc/drc/drc_cfg_AZ.txt";
     }
 
     ALOGV("%s: Calling drc_init: num ch: %d, period: %d, cfg file: %s", __func__, num_chan, SSR_PERIOD_SIZE, cfgFileName);
@@ -272,9 +272,9 @@ static int32_t ssr_init_surround_sound_3mic_lib(unsigned long buffersize, int nu
     ssrmod.num_out_chan = num_out_chan;
 
     if (num_out_chan == 6) {
-        cfgFileName = "/system/etc/surround_sound_3mic/surround_sound_rec_5.1.cfg";
+        cfgFileName = "/vendor/etc/surround_sound_3mic/surround_sound_rec_5.1.cfg";
     } else if (num_out_chan == 2) {
-        cfgFileName = "/system/etc/surround_sound_3mic/surround_sound_rec_AZ.cfg";
+        cfgFileName = "/vendor/etc/surround_sound_3mic/surround_sound_rec_AZ.cfg";
     } else {
         ALOGE("%s: No cfg file for num_out_chan: %d", __func__, num_out_chan);
     }
@@ -311,7 +311,7 @@ void audio_extn_ssr_update_enabled()
 {
     char ssr_enabled[PROPERTY_VALUE_MAX] = "false";
 
-    property_get("ro.qc.sdk.audio.ssr",ssr_enabled,"0");
+    property_get("ro.vendor.audio.sdk.ssr",ssr_enabled,"0");
     if (!strncmp("true", ssr_enabled, 4)) {
         ALOGD("%s: surround sound recording is supported", __func__);
         ssrmod.is_ssr_enabled = true;
@@ -538,22 +538,22 @@ int32_t audio_extn_ssr_init(struct stream_in *in, int num_out_chan)
 
     pthread_mutex_unlock(&ssrmod.ssr_process_lock);
 
-    property_get("ssr.pcmdump",c_multi_ch_dump,"0");
+    property_get("vendor.audio.ssr.pcmdump",c_multi_ch_dump,"0");
     if (0 == strncmp("true", c_multi_ch_dump, sizeof("ssr.dump-pcm"))) {
         /* Remember to change file system permission of data(e.g. chmod 777 data/),
           otherwise, fopen may fail */
         if ( !ssrmod.fp_input) {
             ALOGD("%s: Opening ssr input dump file \n", __func__);
-            ssrmod.fp_input = fopen("/data/misc/audio/ssr_input_3ch.pcm", "wb");
+            ssrmod.fp_input = fopen("/data/vendor/misc/audio/ssr_input_3ch.pcm", "wb");
         }
 
         if ( !ssrmod.fp_output) {
             if(ssrmod.num_out_chan == 6) {
                 ALOGD("%s: Opening ssr input dump file for 6 channel\n", __func__);
-                ssrmod.fp_output = fopen("/data/misc/audio/ssr_output_6ch.pcm", "wb");
+                ssrmod.fp_output = fopen("/data/vendor/misc/audio/ssr_output_6ch.pcm", "wb");
             } else {
                 ALOGD("%s: Opening ssr input dump file for 2 channel\n", __func__);
-                ssrmod.fp_output = fopen("/data/misc/audio/ssr_output_2ch.pcm", "wb");
+                ssrmod.fp_output = fopen("/data/vendor/misc/audio/ssr_output_2ch.pcm", "wb");
             }
         }
 
