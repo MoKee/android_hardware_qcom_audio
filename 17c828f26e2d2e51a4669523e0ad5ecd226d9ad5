@@ -1,0 +1,4 @@
+{
+  "pushCert": "certificate version 0.1\npusher 2ECD2531 1571339841 +0800\npushee ssh://mokeedev.review:29418/MoKee/android_hardware_qcom_audio\nnonce 1571339841-18BD607B05429903C38D61EB04BBB96E0CD62957\n\n0000000000000000000000000000000000000000 17c828f26e2d2e51a4669523e0ad5ecd226d9ad5 refs/for/mkq-caf-msm8994\n-----BEGIN PGP SIGNATURE-----\n\niQEzBAABCgAdFiEE/Y8fKHw84zhHjhP78iL05i7NJTEFAl2ovkEACgkQ8iL05i7N\nJTFQBAf/SXc+f3QXsdFjt2wiCVnzfnfLpJHTyRwXDqq0MYelBcFAwFrQSvictxnf\nGU9PI5ZW50qFAIOczJvSYUrCsC0bl6jOIEro8kfLVHdQ4F6+Jfls+LeD1UbR/vrf\n6SMOywIDeMvs7s0ETiP6JPEp0YzwtzLSlOXCAoJ3ApHA5uOF9qa8s/L9yyTwcDlt\no/QfGBawWhzenOm76YtDVuLeaWsDtfKkGTwVrrWVvJaXB+CiGaVZT26jm8oCWOL2\nKBARSyTafFGVDHjqPV/YtUlZtdaC38v/BkwYXnSmtVbsYie8ZYggql9Rno9+XUTr\ngP8TKUZrXJgpRjfvMYunyqQp8rXyZA\u003d\u003d\n\u003d4Ruj\n-----END PGP SIGNATURE-----\n",
+  "comments": []
+}
